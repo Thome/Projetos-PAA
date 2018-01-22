@@ -81,4 +81,6 @@ if __name__ == "__main__":
         f2.write(text)
         #f2.write('\n') talvez necessário
 
+    f1.close()
+    f2.close()
     """done"""
