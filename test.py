@@ -23,7 +23,9 @@ def calcular_tabela(tabela, P):
     print("Done!")
 
 
-def busca_kmp(pos, tab, T, P):
+def busca_kmp(T, P):
+    pos = []
+    tab = []
     n = len(T)
     m = len(P)
     j = -1
@@ -38,16 +40,45 @@ def busca_kmp(pos, tab, T, P):
             pos.append(i - m + 1)
             j = tab[j]
 
-    """done"""  
+    # > 90%? return 1, else return 0  
 
 
 if __name__ == "__main__":
-    tab = []
-    pos = []
-    pLista = "ara"
-    tLista = "araradearacaju"
-    busca_kmp(pos, tab, tLista, pLista)
-    print("Tabela:")
-    print(tab)
-    print("Posições:")
-    print(pos)
+
+    f1 = open('input.txt', 'r')
+    f2 = open('output', 'w')
+
+    tam = int((f1.readline()).replace("\n",""))
+    T = (f1.readline()).replace("\n","")
+    n_diseases = int((f1.readline()).replace("\n",""))
+    d = dict()
+
+    while n_diseases > 0:
+        next_line = f1.readline().split(' ')
+        disease = next_line[0]
+        n_genes = next_line[1]
+        genes_ativos = 0
+        contador = 0
+        
+        while contador < n_genes:
+            gene = next_line[contador + 2]
+            if kmp(T, gene):
+                genes_ativos += 1
+            contador += 1
+
+        
+        percent = round(genes_ativos / n_genes)
+        d[percent] = disease
+        n_diseases -= 1
+
+
+    # código
+    # ordena-se diseases e %s, imprime
+    porcentagems = sorted(d)
+    porcentagems.reverse()
+    for pcent in porcentagems:
+        text = "%s: %s" % (d[pcent], str(pcent)) + "%"
+        f2.write(text)
+        #f2.write('\n') talvez necessário
+
+    """done"""
