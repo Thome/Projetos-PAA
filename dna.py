@@ -60,8 +60,7 @@ def kmp(T, P, tam):
                 lidos += 1
                 j += 1
                 i += 1
-            for cont in range(lidos):
-                P = P[1:]
+            P = P[lidos:]
             lidos_total += lidos
 
             calcular_tabela(tab, P)
