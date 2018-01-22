@@ -40,8 +40,39 @@ def busca_kmp(T, P):
             pos.append(i - m + 1)
             j = tab[j]
 
-    # > 90%? return 1, else return 0  
+def kmp(T, P, tam):
+    tab = []
+    n = len(T)
+    m = len(P)
+    j = -1
+    lidos_total = 0
+    i = 0
+    calcular_tabela(tab, P)
 
+    while i < n:
+        while j >= 0 and P[j+1] != T[i]:
+            j = tab[j]
+        if P[j+1] == T[i]:
+            j += 1
+        if j == tam - 1:
+            lidos = tam
+            while P[j+1] == T[i+1] and i < n and j < m:
+                lidos += 1
+                j += 1
+                i += 1
+            for cont in range(lidos):
+                P.pop(0)
+            lidos_total += lidos
+
+            calcular_tabela(tab, P)
+            j = -1
+            
+        i += 1
+
+    if lidos_total / m >= 0.9:
+        return 1
+    else:
+        return 0
 
 if __name__ == "__main__":
 
@@ -62,7 +93,7 @@ if __name__ == "__main__":
         
         while contador < n_genes:
             gene = next_line[contador + 2]
-            if kmp(T, gene):
+            if kmp(T, gene, tam):
                 genes_ativos += 1
             contador += 1
 
