@@ -1,15 +1,8 @@
-def inicializar(tabela, tamanho):
-    i = 0
-    while i < tamanho:
-        tabela.append(-1)
-        i += 1
-     
-
 def calcular_tabela(tabela, P):
     m = len(P)
     j = -1
     i = 1
-    inicializar(tabela, m)
+    tabela = [-1] * m
     
     while i < m:
         while j >= 0 and P[j+1] != P[i]:
