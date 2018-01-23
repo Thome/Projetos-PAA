@@ -31,22 +31,23 @@ def kmp(T, P, tam):
             j += 1
             temp += 1 
         else:
-            if temp >= tam: #add
-                su_m += temp#temp
-                P = P[tam:] #add
-                tab = calcular_tabela(P) #add
-                j = - 1   #add
-        temp = j + 1 #add
+            if temp >= tam: 
+                su_m += temp
+                P = P[tam:] 
+                tab = calcular_tabela(P) 
+                j = - 1   
+        temp = j + 1 
 
 
         if j == m - 1:
             su_m += j + 1
-            P = P[j:] #add
+            P = P[j:] 
             j = tab[j]
-            break #add
+            break 
             
         i += 1
 
+    
     if su_m / m >= 0.9:
         return 1
     else:
@@ -75,18 +76,15 @@ if __name__ == "__main__":
                 genes_ativos += 1
             contador += 1
 
-        
-        percent = round(genes_ativos / n_genes)
-        d[percent] = disease
+        percent = round((genes_ativos / n_genes) * 100)
+        d[disease] = percent
         n_diseases -= 1
 
 
-    # código
-    # ordena-se diseases e %s, imprime
-    porcentagems = sorted(d)
-    porcentagems.reverse()
-    for pcent in porcentagems:
-        text = "%s: %s" % (d[pcent], str(pcent)) + "%"
+    
+    porcentagems = sorted(d, key=d.get, reverse=True)
+    for item in porcentagems:
+        text = "%s: %s" % (item, d[item]) + "%"
         f2.write(text)
         f2.write('\n')
 
