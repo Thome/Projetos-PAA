@@ -44,11 +44,11 @@ int kmp(int tab[], string T, string P, int tam){
 	
 	for(i = 0; i < n; i++){
 		while(j >= 0 && P[j+1] != T[i]){
-            j = tab[j];
-        }
-        if(P[j+1] == T[i]){
+        		j = tab[j];
+        	}
+        	if(P[j+1] == T[i]){
 			j++;
-		} else {
+	   	} else {
 			if (temp >= tam){
 				su_m += temp;
 				P.erase (0,temp);
