@@ -83,8 +83,8 @@ int main(){
 			free(matriz[i]);
 		}
 		free(matriz);
-			contador++;
-		}
+		contador++;
+	}
 
 return 0;
 }
