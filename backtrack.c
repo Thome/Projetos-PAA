@@ -42,14 +42,8 @@ void processar(int x, int y, char** matriz, int altura, int largura, int cordx, 
 }
 
 
-//int main(int argc, char* argv[]){
 int main(){
 
-	//printf("#ARGS = %i\n", argc);
-	//printf("PROGRAMA = %s\n", argv[0]);
-	//printf("ARG1 = %s, ARG2 = %s\n", argv[1], argv[2]);
-	//FILE* input = fopen(argv[1], "r");
-	//FILE* output = fopen(argv[2], "w");
 	FILE* input = fopen("input.txt", "r");
 
 	int NL;
