@@ -66,12 +66,11 @@ int main(){
 				fscanf(input, "%c ", &matriz[i][j]);
 				//printf("%c ", matriz[i][j]);
 				if (matriz[i][j] == 'X'){
-                    a = i;
-                    b = j;
+					a = i;
+					b = j;
 				}
 
 			}
-			//printf("\n");
 		}
 
         printf("L%d:\n", contador);
