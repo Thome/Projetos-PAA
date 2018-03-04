@@ -73,18 +73,18 @@ int main(){
 			//printf("\n");
 		}
 
-        printf("L%d:\n", contador);
-        printf("INICIO [%d,%d]\n", a, b);
-        flag = 0;
-        processar(a, b, matriz, altura, largura, 0, 0, &flag);
+		printf("L%d:\n", contador);
+		printf("INICIO [%d,%d]\n", a, b);
+		flag = 0;
+		processar(a, b, matriz, altura, largura, 0, 0, &flag);
 
 
-	for(i = 0; i < altura; i++){
-		free(matriz[i]);
-	}
-	free(matriz);
-	contador++;
-	}
+		for(i = 0; i < altura; i++){
+			free(matriz[i]);
+		}
+		free(matriz);
+			contador++;
+		}
 
 return 0;
 }
