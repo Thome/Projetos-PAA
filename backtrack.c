@@ -65,8 +65,8 @@ int main(){
 				fscanf(input, "%c ", &matriz[i][j]);
 				//printf("%c ", matriz[i][j]);
 				if (matriz[i][j] == 'X'){
-                    a = i;
-                    b = j;
+				    a = i;
+				    b = j;
 				}
 
 			}
@@ -79,11 +79,11 @@ int main(){
         processar(a, b, matriz, altura, largura, 0, 0, &flag);
 
 
-		for(i = 0; i < altura; i++){
-			free(matriz[i]);
-		}
-		free(matriz);
-		contador++;
+	for(i = 0; i < altura; i++){
+		free(matriz[i]);
+	}
+	free(matriz);
+	contador++;
 	}
 
 return 0;
