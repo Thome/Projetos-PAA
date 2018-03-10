@@ -72,17 +72,17 @@ int main(int argc, char* argv[]){
 			for (j = 0; j < largura; j++){
 				fscanf(input, "%c ", &matriz[i][j]);
 				if (matriz[i][j] == 'X'){
-                    a = i;
-                    b = j;
+				    a = i;
+				    b = j;
 				}
 
 			}
 		}
 
-        fprintf(output, "L%d:\n", contador);
-        fprintf(output, "INICIO [%d,%d]\n", a, b);
-        flag = 0;
-        processar(a, b, matriz, altura, largura, 0, 0, &flag);
+		fprintf(output, "L%d:\n", contador);
+		fprintf(output, "INICIO [%d,%d]\n", a, b);
+		flag = 0;
+		processar(a, b, matriz, altura, largura, 0, 0, &flag);
 
 
 		for(i = 0; i < altura; i++){
