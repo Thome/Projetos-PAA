@@ -10,31 +10,31 @@ void processar(int x, int y, char** matriz, int altura, int largura, int cordx, 
         fprintf(output, "SAIDA [%d,%d]\n", x, y);
         *flag = 1;
     } else {
-        if (matriz[x][y+1] == '0'){
+        if (matriz[x][y+1] == '0' && *flag == 0){  //D
             fprintf(output, "D [%d,%d]->[%d,%d]\n", x, y, x, y+1);
             matriz[x][y+1] = 'X';
             processar(x, y+1, matriz, altura, largura, x, y, flag);
         }
 
-        if (matriz[x-1][y] == '0'){
+        if (matriz[x-1][y] == '0' && *flag == 0){  //F
             fprintf(output, "F [%d,%d]->[%d,%d]\n", x, y, x-1, y);
             matriz[x-1][y] = 'X';
             processar(x-1, y, matriz, altura, largura, x, y, flag);
         }
 
-        if (matriz[x][y-1] == '0'){
+        if (matriz[x][y-1] == '0' && *flag == 0){  //E
             fprintf(output, "E [%d,%d]->[%d,%d]\n", x, y, x, y-1);
             matriz[x][y-1] = 'X';
             processar(x, y-1, matriz, altura, largura, x, y, flag);
         }
 
-        if (matriz[x+1][y] == '0'){
+        if (matriz[x+1][y] == '0' && *flag == 0){  //T
             fprintf(output, "T [%d,%d]->[%d,%d]\n", x, y, x+1, y);
             matriz[x+1][y] = 'X';
             processar(x+1, y, matriz, altura, largura, x, y, flag);
         }
 
-        if (cordx != 0 && cordy != 0) { //não é a primeira instancia de processar
+        if (cordx != 0 && cordy != 0 && *flag == 0) { //não é a primeira instancia de processar
             fprintf(output, "BT [%d,%d]<-[%d,%d]\n", cordx, cordy, x, y);
         } else if (*flag == 0) {         //é a primeira instancia de processar, E não achou saída
             fprintf(output, "SEM SAIDA\n");
@@ -72,8 +72,8 @@ int main(int argc, char* argv[]){
 			for (j = 0; j < largura; j++){
 				fscanf(input, "%c ", &matriz[i][j]);
 				if (matriz[i][j] == 'X'){
-				    a = i;
-				    b = j;
+                    			a = i;
+                    			b = j;
 				}
 
 			}
