@@ -46,7 +46,7 @@ int G(unsigned int key, char* msg){
 
 int main(int argc, char* argv[]) {
 
-    printf("#ARGS = %i\n", argc);
+	printf("#ARGS = %i\n", argc);
 	printf("PROGRAMA = %s\n", argv[0]);
 	printf("ARG1 = %s, ARG2 = %s\n", argv[1], argv[2]);
 
@@ -56,36 +56,36 @@ int main(int argc, char* argv[]) {
 	int chaveA, chaveB;
 	int primoP, baseG;
 	int NM, contador = 0;
-    fscanf(input, "A %d ", &chaveA);
-    fscanf(input, "B %d ", &chaveB);
-    fscanf(input, "DH %d %d ", &primoP, &baseG);
+    	fscanf(input, "A %d ", &chaveA);
+    	fscanf(input, "B %d ", &chaveB);
+    	fscanf(input, "DH %d %d ", &primoP, &baseG);
 
-    int A = potencia(baseG, chaveA, primoP);
-    fprintf(output, "A->B: %d\n", A);
-    int B = potencia(baseG, chaveB, primoP);
-    fprintf(output, "B->A: %d\n", B);
+    	int A = potencia(baseG, chaveA, primoP);
+    	fprintf(output, "A->B: %d\n", A);
+    	int B = potencia(baseG, chaveB, primoP);
+    	fprintf(output, "B->A: %d\n", B);
 
-    int S = potencia(B, chaveA, primoP);
-    int chaveK = S;
-    chaveK = M * chaveK + D;
-    char* mensagem;
+    	int S = potencia(B, chaveA, primoP);
+    	int chaveK = S;
+    	chaveK = M * chaveK + D;
+    	char* mensagem;
 
-    fscanf(input, "%d ", &NM);
-    while (contador < NM){
-        mensagem = malloc(1001 * sizeof(char));
-        fscanf(input, "%s ", mensagem);
-        if (contador % 2 == 0) {
-            fprintf(output, "A->B: ");
-        } else {
-            fprintf(output, "B->A: ");
-        }
-        chaveK = G(chaveK,mensagem);
-        contador++;
-        free(mensagem);
-    }
+    	fscanf(input, "%d ", &NM);
+    	while (contador < NM){
+        	mensagem = malloc(1001 * sizeof(char));
+        	fscanf(input, "%s ", mensagem);
+        	if (contador % 2 == 0) {
+            		fprintf(output, "A->B: ");
+        	} else {
+            		fprintf(output, "B->A: ");
+        	}
+        	chaveK = G(chaveK,mensagem);
+        	contador++;
+        	free(mensagem);
+    	}
 
 	fclose(input);
 	fclose(output);
 
-    return 0;
+    	return 0;
 }
